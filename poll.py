@@ -21,8 +21,8 @@ poll_data =[
    'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q2'}]
 filename = 'data.txt'
 
-def response(val):
-    return response_data[val]
+def response(val0, val1, val2):
+    return response_data[val0 + 1]
 
 @app.route('/')
 def root():
@@ -30,23 +30,42 @@ def root():
 
 @app.route('/poll')
 def poll():
-    vote = request.args.get('field')
-    vote_val = -1; 
+    vote0 = request.args.get('q0')
+    vote1 = request.args.get('q1')
+    vote2 = request.args.get('q2')
+    vote_val0 = -2
+    vote_val1 = -2
+    vote_val2 = -2
+    print(vote0)
     for val in range(0, 3):
-        if vote == ANS_ENUM[val]:
-            vote_val = val
-            print(vote_val)
-    if vote_val == -1:
+        if vote0 == ANS_ENUM[val]:
+            vote_val0 = val-1
+            print(vote_val0)
+    if vote_val0 == -1:
+        print("Error")
+
+    for val in range(0, 3):
+        if vote1 == ANS_ENUM[val]:
+            vote_val1 = val-1
+            print(vote_val1)
+    if vote_val1 == -1:
+        print("Error")
+
+    for val in range(0, 3):
+        if vote2 == ANS_ENUM[val]:
+            vote_val2 = val-1
+            print(vote_val2)
+    if vote_val2 == -1:
         print("Error")
             
-    str_response = response(vote_val)          
+    str_response = response(vote_val0, vote_val1, vote_val2) 
+
 
     out = open(filename, 'a')
-    out.write( str(vote_val) + '\n' )
+    out.write( str(vote_val0) + '\n' )
     out.close()
 
     return render_template('thankyou.html', data=str_response)
-
 
 @app.route('/results')
 def show_results():
