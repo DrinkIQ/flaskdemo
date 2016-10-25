@@ -4,11 +4,10 @@
 <title>POLL</title>
 </head>
 <body>
-<h1>{{ data.question }}</h1>
 <form action="/poll">
-  {% for g in data.fields %}
-    <input type=""
-  {% for e in data.fields %}
+  {% for q in data %}
+    <h1>{{ q.question }}</h1>
+  {% for e in q.fields %}
      <input type="radio" name="field" value="{{ e }}"> {{ e }}<br>
   {% endfor %}
   {% endfor %}

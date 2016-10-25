@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 import os
 app = Flask(__name__)
 
-poll_data =
- [{'question' : 'Do you like Whiskey and Coke?',
+poll_data =[
+    {'question' : 'Do you like Whiskey and Coke?',
    'fields'   : ['Yes', 'No', 'Unfamiliar with Drink']},
 
    {'question' : 'Do you like Long Island?',
