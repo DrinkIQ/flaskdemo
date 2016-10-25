@@ -1,1 +1,1 @@
-web: gunicorn main:poll --log-file=-
+web: gunicorn poll:app --log-file=-
