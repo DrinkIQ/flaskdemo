@@ -5,12 +5,19 @@
 <title>{{ data.question }}</title>
 </head>
 <body>
-<h1>{{ data.question }}</h1>
-<form action="/poll">
-  {% for e in data.fields %}
-     <input type="radio" name="field" value="{{ e }}"> {{ e }}<br>
+
+<form method="GET" action="/poll">
+  {% for q in data %}
+    <h1>{{ q.question }}</h1>
+    <select name="{{q.val}}">
+  {% for e in q.fields %}
+     <option value="{{ e }}"> {{ e }}</option>
   {% endfor %}
-  <input type="submit" value="Vote" />
+    </select>
+  {% endfor %}
+</br>
+  <input type="submit" value="Get Suggestion" />
+
 </form>
 </body>
 </html>

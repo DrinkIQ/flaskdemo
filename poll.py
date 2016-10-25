@@ -2,13 +2,23 @@ from flask import Flask, render_template, request
 import os
 app = Flask(__name__)
 
+
 ANS_ENUM = ['No', 'Unfamiliar with Drink', 'Yes']
 response_data = ['You should try bacardi and coke', 'You should try vodka martini', 'You should try mimosa']
 
 
-poll_data = {'question' : 'Do you like Whiskey and Coke?',
-   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink']}
 
+
+
+poll_data =[
+    {'question' : 'Do you like Whiskey and Coke?',
+   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q0'},
+
+   {'question' : 'Do you like Long Island?',
+   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q1'},
+
+   {'question' : 'Do you like Gin and Tonic?',
+   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q2'}]
 filename = 'data.txt'
 
 def response(val):
