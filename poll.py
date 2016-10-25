@@ -4,13 +4,13 @@ app = Flask(__name__)
 
 poll_data =[
     {'question' : 'Do you like Whiskey and Coke?',
-   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink']},
+   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q0'},
 
    {'question' : 'Do you like Long Island?',
-   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink']},
+   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q1'},
 
    {'question' : 'Do you like Gin and Tonic?',
-   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink']}]
+   'fields'   : ['Yes', 'No', 'Unfamiliar with Drink'], 'val' : 'q2'}]
 filename = 'data.txt'
 
 @app.route('/')
