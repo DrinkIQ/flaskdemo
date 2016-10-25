@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 import os
+import lookup
+
 app = Flask(__name__)
 
 
@@ -22,7 +24,9 @@ poll_data =[
 filename = 'data.txt'
 
 def response(val0, val1, val2):
-    return response_data[val0 + 1]
+    tup = (val0, val1, val2)
+
+    return lookup.ginWhiskeyTeaTable[tup]
 
 @app.route('/')
 def root():
