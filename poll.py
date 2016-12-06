@@ -51,6 +51,7 @@ def response(val0, val1, val2):
 
     return lookup.ginWhiskeyTeaTable[tup]
 
+
 @app.route('/')
 @login_required
 def root():
